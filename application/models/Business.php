@@ -79,7 +79,7 @@ class Business extends SimpleModel
 
             $row = $this->get_by($where);
 
-            if (!$row || empty($row) || (!empty($row) && (strtotime($row->modified) + $this->cacheTTL) > time())) {
+            if (!$row || empty($row)) {
                 if ($create) {
                     $response = $this->requestApi($query);
                     if (!empty($response->data)) {
