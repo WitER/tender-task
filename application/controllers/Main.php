@@ -41,7 +41,7 @@ class Main extends CI_Controller
             $result['success'] = true;
             $result['data'] = $this->business->lastResults();
         } else {
-            $result = $this->business->search($search, /*$this->input->method(TRUE) == 'POST'*/ 1);
+            $result = $this->business->search($search, $this->input->method(TRUE) == 'POST');
         }
 
         if ($this->input->is_ajax_request() || $format == 'json') {
